@@ -1,0 +1,25 @@
+
+CS621 – Parallel and Distributed Computing
+
+GDB SCENARIO
+
+Suppose you are working with a distributed cloud system for weather prediction which performs large atmospheric simulations. In this distributed system, the tasks are distributed equally among all the nodes at the beginning of every run. As the simulation progresses, sudden changes such as storm formations make some regions to be much more computationally intensive than others. This makes some nodes to be very loaded and other to be underutilized. Your goal is to effectively manage the system so that it stays efficient, responsive, and stable under changing workloads.
+
+Discussion Question: Given the above weather prediction scenario, which of the three strategies of load balancing below then would you select, and why?
+
+Dynamic Load Balancing
+Task Migration
+Work Stealing
+Note: Students should select one strategy and justify why it would be the most effective for this scenario.
+
+Solution:
+
+⭐ Selected Strategy: Work Stealing (Short Answer)
+
+For the weather-prediction simulation, Work Stealing is the most effective load-balancing strategy. In this system, some regions suddenly become more complex to compute when storms form. This causes certain nodes to become overloaded while others stay free. Work stealing solves this by allowing idle nodes to automatically steal tasks from busy nodes. This reduces waiting time, keeps all nodes active, and adjusts quickly to unpredictable workload changes. It also avoids the high communication cost of central load balancing. Therefore, work stealing is the best choice for a dynamic and uneven simulation environment.
+
+On the other hand Dynamic Load Balancing adjusts task distribution during execution by monitoring all nodes, but it can introduce high communication overhead due to constant system-wide coordination. Task Migration helps balance load by moving running tasks from busy nodes to idle ones, though this can be expensive because transferring task state is costly.
+
+Conclusion:
+
+Work Stealing is the best choice because it balances the workload dynamically, reduces system overhead, scales efficiently, and ensures that all nodes stay productive even when computational demands change unexpectedly. 
